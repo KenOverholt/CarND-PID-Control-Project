@@ -34,9 +34,9 @@ int main()
 
   PID pid;
   // TODO: Initialize the pid variable.
-  double init_Kp = 0;
-  double init_Ki = 0;
-  double init_Kd = 0;
+  double init_Kp = -1;  //turn to the center of the road
+  double init_Ki = 0; //wheel alignment
+  double init_Kd = 0; // not oscilate around the center line
   pid.Init(init_Kp, init_Ki, init_Kd);
   
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
