@@ -62,7 +62,7 @@ int main()
           * another PID controller to control the speed!
           */
           
-          steer_value = 0.5;
+          steer_value = pid.TotalError();
           
           // DEBUG
           std::cout << "CTE: " << cte << " Steering Value: " << steer_value << std::endl;
