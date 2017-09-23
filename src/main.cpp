@@ -67,11 +67,11 @@ int main(int argc, char *argv[])
           steer_value = pid.TotalError();
           
           // DEBUG
-          std::cout << "CTE: " << cte << " Steering Value: " << steer_value << " speed: " << speed << std::endl;
+          std::cout << "CTE: " << cte << " Steering Value: " << steer_value << " speed: " << speed << " throttle: " << throttle << std::endl;
 
           json msgJson;
           msgJson["steering_angle"] = steer_value;
-          msgJson["throttle"] = throttle;
+          //msgJson["throttle"] = throttle;
           //msgJson["speed"] = 1; // KRO
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
           std::cout << msg << std::endl;
