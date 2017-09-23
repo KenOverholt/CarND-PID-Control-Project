@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
           steer_value = pid.TotalError();
           
           // DEBUG
-          std::cout << "CTE: " << cte << " Steering Value: " << steer_value << " speed: " < speed << std::endl;
+          std::cout << "CTE: " << cte << " Steering Value: " << steer_value << " speed: " << speed << std::endl;
 
           json msgJson;
           msgJson["steering_angle"] = steer_value;
