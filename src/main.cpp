@@ -56,6 +56,8 @@ int main(int argc, char *argv[])
           double speed = std::stod(j[1]["speed"].get<std::string>());
           double angle = std::stod(j[1]["steering_angle"].get<std::string>());
           double steer_value;
+          double throttle = std::stod(j[1]["throttle"].get<std::string>());
+
           
           pid.UpdateError(cte);
           steer_value = pid.TotalError(); //controls steering
@@ -74,7 +76,7 @@ int main(int argc, char *argv[])
           msgJson["steering_angle"] = steer_value;
           msgJson["throttle"] = 0.3;
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
-          std::cout << msg << std::endl;
+          std::cout << "msg: " << msg << std::endl;
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
         }
       } else {
