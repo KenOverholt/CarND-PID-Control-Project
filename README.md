@@ -1,3 +1,6 @@
+[//]  # (Image Reference)
+[image1]: ./PID Tuning.jpg "PID Tuning Parameters"
+
 # CarND-PID-Control-Project
 Self-Driving Car Engineer Nanodegree Program
 
@@ -17,6 +20,8 @@ The "I" in PID stands for Integral.  This value can help account for slight erro
 I tuned my parameters by hand.  I started with just modifying P.  A larger value caused higher oscilations so I slowly lowered it.  Next I started modifying D which helped with the oscilations.  At one point, I was able to get the car completely around the track but was unable to reproduce my success so I continued experimenting.
 
 Eventually, I concluded that the controller wasn't running fast enough to keep up with the speed of the car.  It was successful when the car first started but the simulator is set to keep increasing the car's speed so I changed the speed control.  I modified the program to keep the throttle at the pre-defined 0.0 but watch the speed and when it hit 10, drop the throttle back to 0.  This allowed my car success in getting around the track.
+
+![alt text][image1]
 
 ## Dependencies
 
