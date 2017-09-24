@@ -56,11 +56,17 @@ int main(int argc, char *argv[])
           double speed = std::stod(j[1]["speed"].get<std::string>());
           double angle = std::stod(j[1]["steering_angle"].get<std::string>());
           double steer_value;
-          double throttle = std::stod(j[1]["throttle"].get<std::string>());
+          double throttle_value = std::stod(j[1]["throttle"].get<std::string>());
 
           
           pid.UpdateError(cte);
           steer_value = pid.TotalError(); //controls steering
+          
+          if(speed > 10){
+            throttle_value = 0.0;
+          } else {
+            throttle_value = 0.3;
+          }
           
           /*
           * TODO: Calcuate steering value here, remember the steering value is
@@ -74,7 +80,7 @@ int main(int argc, char *argv[])
 
           json msgJson;
           msgJson["steering_angle"] = steer_value;
-          msgJson["throttle"] = 0.3;
+          msgJson["throttle"] = throttle_value;
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
           std::cout << "msg: " << msg << std::endl;
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
