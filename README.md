@@ -1,5 +1,5 @@
 [//]:  # (Image Reference)
-[image1]: ./PID-Tuning.jpg "PID Tuning Parameters"
+[image1]: ./PID-Tuning.png "PID Tuning Parameters"
 
 # CarND-PID-Control-Project
 Self-Driving Car Engineer Nanodegree Program
